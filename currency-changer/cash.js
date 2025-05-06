@@ -23,12 +23,14 @@ function convert() {
 function entry_click(clicked_data_devise) {
     money_entered = money[clicked_data_devise]; // gets the currency
     updateSelection("entry_div", clicked_data_devise); // keeps the color once the currency is chosen
+    convert()
 }
 
 // Selects the output
 function wanted_click(clicked_data_devise) {
     money_want_get = money[clicked_data_devise];
     updateSelection("output_div", clicked_data_devise);
+    convert()
 }
 
 // Add a eventListener on the input with the id="entry"
