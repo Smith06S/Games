@@ -48,7 +48,7 @@ function randomColor() {
 
     // gives a color making sure it is not the same as the previous one
     while (newColor === currentColor);
-    paths.style.fill = newColor;
+    element.style.fill = newColor;
 }
 
 // start the animation loop
