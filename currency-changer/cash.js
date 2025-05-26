@@ -5,35 +5,35 @@ const money = {
     bitcoin: 40000
 };
 
-var money_entered = 1; // default to a valid exchange rate
-var money_want_get = 1; // default to prevent division by zero
+var type_money_entry = 1; // default to a valid exchange rate
+var type_money_result = 1; // default to prevent division by zero
 
 
 // Convert function
 function convert() {
-    let money_to_convert = document.getElementById("entry").value; // gets the entry from the id
-    let result_element = document.getElementById("result"); // gets the result field from the id
+    var entry = document.getElementById("entry").value; // gets the entry from the id
+    var result = document.getElementById("result"); // gets the result field from the id
 
-    if (money_entered && money_want_get && money_to_convert) { // if every element is not empty it does the convertion
-        result_element.value = (money_entered * money_to_convert) / money_want_get;
+    if (type_money_entry && type_money_result && entry) { // if every element is not empty it does the convertion
+        result.value = (type_money_entry * entry) / type_money_result;
     }
 }
 
 // Selects the entry
 function entry_click(clicked_data_devise) {
-    money_entered = money[clicked_data_devise]; // gets the currency
+    type_money_entry = money[clicked_data_devise]; // gets the currency
     updateSelection("entry_div", clicked_data_devise); // keeps the color once the currency is chosen
     convert()
 }
 
 // Selects the output
 function wanted_click(clicked_data_devise) {
-    money_want_get = money[clicked_data_devise];
+    type_money_result = money[clicked_data_devise];
     updateSelection("output_div", clicked_data_devise);
     convert()
 }
 
-// Add a eventListener on the input with the id="entry"
+// When the element loses focus, it calls convert()
 document.getElementById("entry").addEventListener("blur", convert);
 
 // Function for the style of the currency chosen
