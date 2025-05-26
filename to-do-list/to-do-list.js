@@ -1,20 +1,20 @@
 // function that creates a new task
 function newTask(text) {
-    // create the main task div with the class "task"
+    // create the task div with the class "task"
     var taskDiv = document.createElement("div");
     taskDiv.classList.add("task");
 
     // create the task text with the text given as parameter
-    var taskText = document.createElement("span");
-    taskText.textContent = text;
-
-    // create the checkbox
+    var label = document.createElement("label");
+    label.textContent = text;
+    
+    // create the task checkbox
     var checkbox = document.createElement("input");
     checkbox.type = "checkbox";
 
-    // append the text and the checkbox to the task div
-    taskDiv.appendChild(taskText);
-    taskDiv.appendChild(checkbox);
+    // append checkbox to the label
+    label.appendChild(checkbox);
+    taskDiv.appendChild(label);
 
     // append task to the list of tasks
     document.getElementById("tasklist").appendChild(taskDiv);
