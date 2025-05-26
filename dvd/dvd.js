@@ -24,7 +24,7 @@ function animation() {
     }
 
     // if the dvd reaches the height of the window, the the dvd goes the opposite direction
-    if (y + 300 >= window.innerHeight || y <= 0) {
+    if (y + 150 >= window.innerHeight || y <= 0) {
         speedY *= -1;
         randomColor()
     }
@@ -44,10 +44,7 @@ function randomColor() {
     var currentColor = element.style.fill;
 
     // choose a randome color in the colors array
-    const newColor = colors[Math.floor(Math.random() * colors.length)];
-
-    // gives a color making sure it is not the same as the previous one
-    while (newColor === currentColor);
+    var newColor = colors[Math.floor(Math.random() * colors.length)];
     element.style.fill = newColor;
 }
 
